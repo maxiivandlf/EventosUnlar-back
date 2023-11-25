@@ -1,11 +1,8 @@
+const { enventsControllers } = require('../controllers');
 const express = require('express');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.status(200).json({
-    message: 'Hello World dasjdsdasdasd!',
-  });
-});
+router.get('/', enventsControllers.createEvent);
 
 module.exports = router;
