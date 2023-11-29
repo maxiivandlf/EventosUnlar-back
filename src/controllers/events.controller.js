@@ -1,4 +1,5 @@
 const createEvent = (req, res) => {
+  console.log(req.body);
   try {
     res.status(200).json({
       message: 'Event created',
