@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const eventoSchema = new mongoose.Schema(
   {
+    _id: mongoose.Schema.Types.ObjectId,
     name: {
       type: String,
       required: true,
@@ -31,6 +32,6 @@ const eventoSchema = new mongoose.Schema(
   }
 );
 
-const Evento = mongoose.model('Evento', eventoSchema);
+const Evento = mongoose.model('Evento', eventoSchema, 'EVENTS');
 
 module.exports = Evento;
