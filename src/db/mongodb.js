@@ -3,8 +3,9 @@ const mongoose = require('mongoose');
 const USERDB = process.env.USER_DB;
 
 const PASSWORDDB = process.env.PASS_DB;
+const DBNAME = process.env.DATABASE_NAME;
 
-const MONGODB_URI = `mongodb+srv://${USERDB}:${PASSWORDDB}@cluster0.jtpzxxb.mongodb.net/?retryWrites=true&w=majority`;
+const MONGODB_URI = `mongodb+srv://${USERDB}:${PASSWORDDB}@cluster0.jtpzxxb.mongodb.net/${DBNAME}?retryWrites=true&w=majority`;
 
 async function connect() {
   try {

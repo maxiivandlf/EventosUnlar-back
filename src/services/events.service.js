@@ -1,4 +1,4 @@
-const Event = require('../models/event');
+const Event = require('../models/event.model');
 
 const getAllEvents = async () => {
   try {
@@ -12,8 +12,8 @@ const getAllEvents = async () => {
 
 const createEvent = async (event) => {
   try {
-    const newEvent = await Event.create(event);
-    return newEvent;
+    const newEvent = await Event(event);
+    return newEvent.save();
   } catch (error) {
     console.log(error);
     throw error.message;
@@ -55,4 +55,7 @@ const updateEvent = async (id, event) => {
 module.exports = {
   getAllEvents,
   createEvent,
+  getEventById,
+  deleteEvent,
+  updateEvent,
 };
