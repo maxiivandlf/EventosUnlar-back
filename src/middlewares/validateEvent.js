@@ -1,6 +1,6 @@
 const Joi = require('joi');
 
-function validarDatosJoi(schema) {
+function validateData(schema) {
   return (req, res, next) => {
     const { error } = schema.validate(req.body);
 
@@ -13,10 +13,10 @@ function validarDatosJoi(schema) {
   };
 }
 
-const eventoSchema = Joi.object({
+const eventSchema = Joi.object({
   name: Joi.string().required(),
   type: Joi.string().required(),
-  dateEvent: Joi.date().required(),
+  dateEvent: Joi.date().iso().required(),
   location: Joi.object({
     lat: Joi.number().required(),
     long: Joi.number().required(),
@@ -24,4 +24,4 @@ const eventoSchema = Joi.object({
   description: Joi.string().required(),
 });
 
-module.exports = { validarDatosJoi, eventoSchema };
+module.exports = { validateData, eventSchema };
