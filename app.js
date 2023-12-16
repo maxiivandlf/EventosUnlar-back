@@ -1,12 +1,13 @@
 const express = require('express');
 const { enventsRouter } = require('./src/routes');
 const { connect } = require('./src/db/mongodb');
+const cors = require('cors');
 
 const PORT = process.env.PORT || 3000;
 
 connect();
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
