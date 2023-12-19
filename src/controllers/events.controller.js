@@ -64,7 +64,9 @@ const deleteEvent = async (req, res) => {
 
 const getAllEvents = async (req, res) => {
   try {
-    const allEvents = await eventService.getAllEvents();
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const allEvents = await eventService.getAllEvents({ page, limit });
     res.status(200).json(allEvents);
   } catch (error) {
     res.status(400).json({

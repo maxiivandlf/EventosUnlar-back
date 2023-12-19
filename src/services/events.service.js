@@ -1,9 +1,18 @@
 const Event = require('../models/event.model');
 
-const getAllEvents = async () => {
+const getAllEvents = async ({ page, limit }) => {
   try {
-    const events = await Event.find();
-    return events;
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+    const events = await Event.find().limit(endIndex).skip(startIndex);
+
+    const response = {
+      totalEvents: await Event.countDocuments(),
+      totalPages: Math.ceil((await Event.countDocuments()) / limit),
+      currentPage: page,
+      events: events,
+    };
+    return response;
   } catch (error) {
     console.log(error);
     throw error.message;
