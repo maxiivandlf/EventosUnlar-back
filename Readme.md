@@ -23,7 +23,7 @@ Asegúrate de tener [Node.js 20 latest](https://nodejs.org/) instalado.
 2. Instala dependencias:
 
    ```bash
-   cd tu-proyecto
+   cd TPFINAL-BACK
    npm install
    ```
 
