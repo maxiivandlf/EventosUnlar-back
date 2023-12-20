@@ -8,9 +8,6 @@ Api rest creada para el trabajo final del curso de mern del polotecnologico usan
 2. [Configuración](#configuración)
 3. [Estructura del Proyecto](#estructura-del-proyecto)
 4. [Uso](#uso)
-5. [Pruebas](#pruebas)
-6. [Contribuciones](#contribuciones)
-7. [Licencia](#licencia)
 
 ## Instalación
 
