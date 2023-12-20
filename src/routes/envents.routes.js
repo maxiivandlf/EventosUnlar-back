@@ -4,7 +4,11 @@ const express = require('express');
 
 const router = express.Router();
 
-router.post('/', validateData(eventSchema), enventsControllers.createEvent);
+router.post(
+  '/?page&limit',
+  validateData(eventSchema),
+  enventsControllers.createEvent
+);
 router.get('/', enventsControllers.getAllEvents);
 router.get('/:id', enventsControllers.getEventById);
 router.put('/:id', enventsControllers.updateEvent);
