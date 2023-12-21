@@ -5,7 +5,6 @@ const createEvent = async (req, res) => {
   if (req.file) {
     const urlabsolute = req.file.path;
     console.log(urlabsolute);
-    const urltransform = urlabsolute.replace(/\\/g, '/');
     const urlrelative = '/uploads';
     const url = urltransform.slice(urltransform.indexOf(urlrelative));
     newEvent.imageURL = url;
