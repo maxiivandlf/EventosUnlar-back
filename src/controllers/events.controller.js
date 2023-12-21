@@ -44,8 +44,6 @@ const updateEvent = async (req, res) => {
 
 const deleteEvent = async (req, res) => {
   const { id } = req.params;
-  console.log(id);
-
   try {
     const event = await eventService.getEventById(id);
     if (!event) {
