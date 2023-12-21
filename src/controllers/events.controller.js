@@ -4,8 +4,9 @@ const createEvent = async (req, res) => {
   const newEvent = req.body;
   if (req.file) {
     const urlabsolute = req.file.path;
-
-    newEvent.imageURL = urlabsolute;
+    const urlrelative = '/uploads';
+    const url = urlabsolute.slice(urlabsolute.indexOf(urlrelative));
+    newEvent.imageURL = `https://apimernfinal.onrender.com${url}`;
   }
   try {
     const _newEvent = await eventService.createEvent(newEvent);
