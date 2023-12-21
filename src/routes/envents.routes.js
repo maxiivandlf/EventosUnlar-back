@@ -1,11 +1,13 @@
 const { enventsControllers } = require('../controllers');
 const { validateData, eventSchema } = require('../middlewares/validateEvent');
+const uploadImage = require('../middlewares/uploadImage');
 const express = require('express');
 
 const router = express.Router();
 
 router.post(
-  '/?page&limit',
+  '/',
+  uploadImage.single('imageURL'),
   validateData(eventSchema),
   enventsControllers.createEvent
 );

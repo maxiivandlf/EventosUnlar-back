@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node --env-file .env app.js",
     "dev": "nodemon --env-file .env app.js"
   },
   "author": "Maximiliano Ivan de la Fuente",
@@ -17,6 +17,7 @@
     "mongoose": "^8.0.1"
   },
   "devDependencies": {
+    "multer": "^1.4.5-lts.1",
     "nodemon": "^3.0.1"
   }
 }

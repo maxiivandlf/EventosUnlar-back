@@ -2,9 +2,11 @@ const { eventService } = require('../services');
 
 const createEvent = async (req, res) => {
   const newEvent = req.body;
+  if (req.file) {
+    newEvent.imageURL = req.file.path;
+  }
   try {
     const _newEvent = await eventService.createEvent(newEvent);
-
     res.status(200).json({
       _newEvent,
       message: 'Event created',

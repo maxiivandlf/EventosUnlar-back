@@ -17,10 +17,8 @@ const eventSchema = Joi.object({
   name: Joi.string().required(),
   type: Joi.string().required(),
   dateEvent: Joi.date().iso().required(),
-  location: Joi.object({
-    lat: Joi.number().required(),
-    long: Joi.number().required(),
-  }).required(),
+  lat: Joi.number().required(),
+  long: Joi.number().required(),
   description: Joi.string().required(),
 });
 
