@@ -2,9 +2,15 @@ const { eventService } = require('../services');
 
 const createEvent = async (req, res) => {
   const newEvent = req.body;
+  if (req.file) {
+    const urlabsolute = req.file.path;
+    const urltransform = urlabsolute.replace(/\\/g, '/');
+    const urlrelative = '/uploads';
+    const url = urltransform.slice(urltransform.indexOf(urlrelative));
+    newEvent.imageURL = url;
+  }
   try {
     const _newEvent = await eventService.createEvent(newEvent);
-
     res.status(200).json({
       _newEvent,
       message: 'Event created',

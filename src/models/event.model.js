@@ -15,17 +15,20 @@ const eventSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
-  location: {
-    lat: {
-      type: Number,
-      required: true,
-    },
-    long: {
-      type: Number,
-      required: true,
-    },
+
+  lat: {
+    type: Number,
+    required: true,
   },
+  long: {
+    type: Number,
+    required: true,
+  },
+
   description: String,
+  imageURL: {
+    type: String,
+  },
 });
 
 const Evento = mongoose.model('Evento', eventSchema, COLLECTION_NAME);
