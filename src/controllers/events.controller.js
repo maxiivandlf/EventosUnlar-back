@@ -4,10 +4,8 @@ const createEvent = async (req, res) => {
   const newEvent = req.body;
   if (req.file) {
     const urlabsolute = req.file.path;
-    console.log(urlabsolute);
-    const urlrelative = '/uploads';
-    const url = urltransform.slice(urltransform.indexOf(urlrelative));
-    newEvent.imageURL = url;
+
+    newEvent.imageURL = urlabsolute;
   }
   try {
     const _newEvent = await eventService.createEvent(newEvent);
