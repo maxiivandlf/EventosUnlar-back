@@ -4,10 +4,9 @@ const createEvent = async (req, res) => {
   const newEvent = req.body;
   if (req.file) {
     const urlabsolute = req.file.path;
-    const urltransform = urlabsolute.replace(/\\/g, '/');
     const urlrelative = '/uploads';
-    const url = urltransform.slice(urltransform.indexOf(urlrelative));
-    newEvent.imageURL = url;
+    const url = urlabsolute.slice(urlabsolute.indexOf(urlrelative));
+    newEvent.imageURL = `https://apimernfinal.onrender.com${url}`;
   }
   try {
     const _newEvent = await eventService.createEvent(newEvent);
@@ -45,8 +44,6 @@ const updateEvent = async (req, res) => {
 
 const deleteEvent = async (req, res) => {
   const { id } = req.params;
-  console.log(id);
-
   try {
     const event = await eventService.getEventById(id);
     if (!event) {
