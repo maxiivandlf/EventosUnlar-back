@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static('./src/uploads'));
 
-app.use('/', enventsRouter);
+app.use('/events', enventsRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
