@@ -29,7 +29,7 @@ const updateEvent = async (req, res) => {
     const urlabsolute = req.file.path;
     const urlrelative = '/uploads';
     const url = urlabsolute.slice(urlabsolute.indexOf(urlrelative));
-    updateEvent.imageURL = `https://apimernfinal.onrender.com/events${url}`;
+    updateEvent.imageURL = `https://apimernfinal.onrender.com${url}`;
   }
   try {
     const event = await eventService.getEventById(id);
