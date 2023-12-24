@@ -13,7 +13,12 @@ router.post(
 );
 router.get('/', enventsControllers.getAllEvents);
 router.get('/:id', enventsControllers.getEventById);
-router.put('/:id', enventsControllers.updateEvent);
+router.put(
+  '/:id',
+  uploadImage.single('imageURL'),
+  validateData(eventSchema),
+  enventsControllers.updateEvent
+);
 router.delete('/:id', enventsControllers.deleteEvent);
 
 module.exports = router;

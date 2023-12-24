@@ -6,7 +6,7 @@ const createEvent = async (req, res) => {
     const urlabsolute = req.file.path;
     const urlrelative = '/uploads';
     const url = urlabsolute.slice(urlabsolute.indexOf(urlrelative));
-    newEvent.imageURL = `https://apimernfinal.onrender.com${url}`;
+    newEvent.imageURL = `https://api-eventos-dev-jeqh.3.us-1.fl0.io${url}`;
   }
   try {
     const _newEvent = await eventService.createEvent(newEvent);
@@ -24,6 +24,13 @@ const createEvent = async (req, res) => {
 
 const updateEvent = async (req, res) => {
   const { id } = req.params;
+  const updateEvent = req.body;
+  if (req.file) {
+    const urlabsolute = req.file.path;
+    const urlrelative = '/uploads';
+    const url = urlabsolute.slice(urlabsolute.indexOf(urlrelative));
+    updateEvent.imageURL = `https://apimernfinal.onrender.com${url}`;
+  }
   try {
     const event = await eventService.getEventById(id);
     if (!event) {
@@ -32,7 +39,7 @@ const updateEvent = async (req, res) => {
         action: 'update',
       });
     } else {
-      const event = await eventService.updateEvent(id, req.body);
+      const event = await eventService.updateEvent(id, updateEvent);
       res.status(200).json(event);
     }
   } catch (error) {
