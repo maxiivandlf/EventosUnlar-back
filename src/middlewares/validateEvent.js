@@ -24,15 +24,7 @@ const eventSchema = Joi.object({
     Joi.binary(),
     Joi.string(),
     Joi.binary().encoding('base64'),
-    Joi.string().pattern(new RegExp('^data:image/[a-zA-Z]+;base64,')),
-    Joi.object({
-      fieldname: Joi.string().required(),
-      originalname: Joi.string().required(),
-      encoding: Joi.string().required(),
-      mimetype: Joi.string().required(),
-      buffer: Joi.binary().required(),
-      size: Joi.number().required(),
-    })
+    Joi.string().pattern(new RegExp('^data:image/[a-zA-Z]+;base64,'))
   ),
 });
 
