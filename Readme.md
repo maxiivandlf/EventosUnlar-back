@@ -65,12 +65,12 @@ Este módulo permite la gestión de eventos de la unlar. El mismo, ofrece funcio
 
 #### Métodos HTTP
 
-- Ruta base + URI: (ejemplo: http://localhost/?page=2&limit=4)
+- Ruta base + URI: (ejemplo: http://localhost/events/?page=2&limit=4)
 
 | Tipo   | URI               | Descripción                                                    |
 | ------ | ----------------- | -------------------------------------------------------------- |
-| GET    | /?page=1&limit=10 | Obtiene los registros paginados (por defecto page 1, limit 10) |
-| GET    | /:id              | Obtiene un registro en específico identificado por id          |
-| POST   | /                 | Crea un nuevo registro                                         |
-| PUT    | /:id              | Modifica un registro en específico identificado por id         |
-| DELETE | /:id              | Elimina un registro en específico identificado por id          |
+| GET    | /events/?page=1&limit=10 | Obtiene los registros paginados (por defecto page 1, limit 10) |
+| GET    | /events/:id              | Obtiene un registro en específico identificado por id          |
+| POST   | /events/                 | Crea un nuevo registro                                         |
+| PUT    | /events/:id              | Modifica un registro en específico identificado por id         |
+| DELETE | /events/:id              | Elimina un registro en específico identificado por id          |
