@@ -11,8 +11,10 @@ router.post(
   validateData(eventSchema),
   enventsControllers.createEvent
 );
+
 router.get('/', enventsControllers.getAllEvents);
 router.get('/:id', enventsControllers.getEventById);
+
 router.put(
   '/:id',
   uploadImage.single('imageURL'),

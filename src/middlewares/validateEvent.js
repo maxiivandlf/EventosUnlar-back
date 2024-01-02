@@ -20,6 +20,12 @@ const eventSchema = Joi.object({
   lat: Joi.number().max(999999).required(),
   long: Joi.number().max(999999).required(),
   description: Joi.string().required(),
+  imageURL: Joi.alternatives().try(
+    Joi.binary(),
+    Joi.string(),
+    Joi.binary().encoding('base64'),
+    Joi.string().pattern(new RegExp('^data:image/[a-zA-Z]+;base64,'))
+  ),
 });
 
 module.exports = { validateData, eventSchema };
