@@ -1,17 +1,26 @@
 const Event = require('../models/event.model');
 
 const getAllEvents = async ({ page, limit }) => {
+  const options = {
+    page: page,
+    limit: limit,
+  };
+
   try {
-    const startIndex = (page - 1) * limit;
-    const endIndex = page * limit;
-    const events = await Event.find().limit(endIndex).skip(startIndex);
+    const events = await Event.paginate({}, options);
 
     const response = {
-      totalEvents: await Event.countDocuments(),
-      totalPages: Math.ceil((await Event.countDocuments()) / limit),
-      currentPage: page,
-      events: events,
+      totalEvents: events.totalDocs,
+      totalPages: events.totalPages,
+      currentPage: events.page,
+      limit: events.limit,
+      hasPrevPage: events.hasPrevPage,
+      hasNextPage: events.hasNextPage,
+      prevPage: events.prevPage,
+      nextPage: events.nextPage,
+      events: events.docs,
     };
+
     return response;
   } catch (error) {
     console.log(error);

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
 
 const COLLECTION_NAME = process.env.COLLECTION_NAME;
 
@@ -30,6 +31,8 @@ const eventSchema = new mongoose.Schema({
     type: String,
   },
 });
+
+eventSchema.plugin(mongoosePaginate);
 
 const Evento = mongoose.model('Evento', eventSchema, COLLECTION_NAME);
 
